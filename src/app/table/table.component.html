@@ -2,6 +2,9 @@
     <thead>
         <td *ngFor="let col of data.columns" class="column">{{ col }}</td>
     </thead>
+    <thead>
+        <td *ngFor="let col of data.columns"><input type="text" class="form-control input" /></td>
+    </thead>
     <tbody *ngFor="let rowGroup of data.data">
             <tr>
                 <td *ngFor="let node1Data of rowGroup.node1Data; let idx=index;" 
