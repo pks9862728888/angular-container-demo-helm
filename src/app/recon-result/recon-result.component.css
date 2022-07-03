@@ -10,6 +10,7 @@
     background-color: #63B175;
     border-radius: 5rem;
     box-shadow: 0px 1px #003610;
+    margin-bottom: 1rem;
 }
 
 .form-check {
@@ -18,7 +19,7 @@
 
 .recon-result {
     width: calc(100vw - 10rem);
-    height: calc(100vh - 10rem);
+    height: calc(100vh - 12rem);
     overflow: scroll;
 }
 
