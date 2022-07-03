@@ -4,11 +4,12 @@ export interface TableDataI {
     testNameColIdx: number,
     resultColIdx: number,
     errors: Array<String>
+    missingColIdxList: Array<Number>
 }
 
 export interface DataNodeI {
     node1Data: Array<String>,
     node2Data: Array<String>,
-    mismatchIdx: Array<Number>,
+    mismatchIdxList: Array<Number>,
     ticketUrl: string
 }

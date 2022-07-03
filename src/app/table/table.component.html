@@ -6,7 +6,7 @@
             <tr>
                 <td *ngFor="let node1Data of rowGroup.node1Data; let idx=index;" 
                     class="column"
-                    [ngClass]="getBackgroundColorClass(rowGroup.node1Data, idx, rowGroup.mismatchIdx)">
+                    [ngClass]="getBackgroundColorClass(rowGroup.node1Data, idx, rowGroup.mismatchIdxList)">
                     <span *ngIf="idx != data.testNameColIdx || isEmpty(rowGroup.ticketUrl)">{{ node1Data }}</span>
                     <span *ngIf="idx == data.testNameColIdx && !isEmpty(rowGroup.ticketUrl)"><a [href]="rowGroup.ticketUrl" target="_blank">{{ node1Data }}</a></span>
                 </td>
@@ -14,7 +14,7 @@
             <tr>
                 <td *ngFor="let node2Data of rowGroup.node2Data; let idx=index"
                      column="column"
-                     [ngClass]="getBackgroundColorClass(rowGroup.node2Data, idx, rowGroup.mismatchIdx)">
+                     [ngClass]="getBackgroundColorClass(rowGroup.node2Data, idx, rowGroup.mismatchIdxList)">
                      <span *ngIf="idx != data.testNameColIdx || isEmpty(rowGroup.ticketUrl)">{{ node2Data }}</span>
                      <span *ngIf="idx == data.testNameColIdx && !isEmpty(rowGroup.ticketUrl)"><a [href]="rowGroup.ticketUrl" target="_blank">{{ node2Data }}</a></span>
                 </td>

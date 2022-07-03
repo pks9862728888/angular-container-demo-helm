@@ -14,50 +14,8 @@ export class ReconResultComponent implements OnInit {
   dataFilter: string = 'CO';
 
   constructor() {
-    this.responseData = {
-      'CO': {
-        'columns': [],
-        'data': [],
-        'testNameColIdx': 1,
-        'resultColIdx': 2,
-        'errors': []
-      },
-      'CR': {
-        'columns': [],
-        'data': [],
-        'testNameColIdx': 1,
-        'resultColIdx': 2,
-        'errors': []
-      },
-      'EQ': {
-        'columns': [],
-        'data': [],
-        'testNameColIdx': 1,
-        'resultColIdx': 2,
-        'errors': []
-      },
-      'FX': {
-        'columns': [],
-        'data': [],
-        'testNameColIdx': 1,
-        'resultColIdx': 2,
-        'errors': []
-      },
-      'IR': {
-        'columns': [],
-        'data': [],
-        'testNameColIdx': 1,
-        'resultColIdx': 2,
-        'errors': []
-      }
-    };
-    this.data = {
-      'columns': [],
-      'data': [],
-      'testNameColIdx': 1,
-      'resultColIdx': 2,
-      'errors': []
-    };
+    this.responseData = this.getEmptyResponseData();
+    this.data = this.getEmptyDataNode();
   }
 
   ngOnInit(): void {
@@ -72,50 +30,55 @@ export class ReconResultComponent implements OnInit {
         data: [{
           node1Data: ['INDIA', 'JURISDICTION_PRODUCT_IDENTIFIER_EVENT_TEST_2', 'PASS', 'ABXL0000000000033000000023456789', 'true', '1', '2', '3'],
           node2Data: ['US', 'JURISDICTION_PRODUCT_IDENTIFIER_EVENT_TEST_1', 'PASS', 'ABXL0000000000033000000023456789', 'true', '1', '2', '3'],
-          mismatchIdx: [],
+          mismatchIdxList: [],
           ticketUrl: 'https://www.google.com'
         }, {
           node1Data: ['INDIA', 'Test 2', 'FAIL', 'ABXL0000000000033000000023456299', 'true', '3', '2', '1'],
           node2Data: ['US', 'Test 2', 'FAIL', 'ABXL0000000000033000000023456799', 'false', '1', '2', '3'],
-          mismatchIdx: [4, 5, 7],
+          mismatchIdxList: [4, 5, 7],
           ticketUrl: ''
         }, {
           node1Data: ['INDIA', '', 'CANNOT_BE_DETERMINED', 'ABXL0000000000033000000023456779', '', '', '', ''],
           node2Data: ['US', '', 'CANNOT_BE_DETERMINED', 'ABXL0000000000033000000023456779', '', '', '', ''],
-          mismatchIdx: [],
+          mismatchIdxList: [],
           ticketUrl: ''
         }],
         testNameColIdx: 1,
         resultColIdx: 2,
-        errors: []
+        errors: [],
+        missingColIdxList: [6]
       },
       'CR': {
         'columns': [],
         'data': [],
         'testNameColIdx': 1,
         'resultColIdx': 2,
-        'errors': []
+        'errors': [],
+        'missingColIdxList': []
       },
       'EQ': {
         'columns': [],
         'data': [],
         'testNameColIdx': 1,
         'resultColIdx': 2,
-        'errors': []
+        'errors': [],
+        'missingColIdxList': []
       },
       'FX': {
         'columns': [],
         'data': [],
         'testNameColIdx': 1,
         'resultColIdx': 2,
-        'errors': []
+        'errors': [],
+        'missingColIdxList': []
       },
       'IR': {
         'columns': [],
         'data': [],
         'testNameColIdx': 1,
         'resultColIdx': 2,
-        'errors': []
+        'errors': [],
+        'missingColIdxList': []
       }
     };
   }
@@ -140,6 +103,62 @@ export class ReconResultComponent implements OnInit {
       default:
         console.log("Unknown data filter: " + dataFilter);
     }
+  }
+
+  getEmptyResponseData() {
+    return {
+      'CO': {
+        'columns': [],
+        'data': [],
+        'testNameColIdx': 1,
+        'resultColIdx': 2,
+        'errors': [],
+        'missingColIdxList': []
+      },
+      'CR': {
+        'columns': [],
+        'data': [],
+        'testNameColIdx': 1,
+        'resultColIdx': 2,
+        'errors': [],
+        'missingColIdxList': []
+      },
+      'EQ': {
+        'columns': [],
+        'data': [],
+        'testNameColIdx': 1,
+        'resultColIdx': 2,
+        'errors': [],
+        'missingColIdxList': []
+      },
+      'FX': {
+        'columns': [],
+        'data': [],
+        'testNameColIdx': 1,
+        'resultColIdx': 2,
+        'errors': [],
+        'missingColIdxList': []
+      },
+      'IR': {
+        'columns': [],
+        'data': [],
+        'testNameColIdx': 1,
+        'resultColIdx': 2,
+        'errors': [],
+        'missingColIdxList': []
+      }
+    };
+  }
+
+  getEmptyDataNode() {
+    return {
+      'columns': [],
+      'data': [],
+      'testNameColIdx': 1,
+      'resultColIdx': 2,
+      'errors': [],
+      'missingColIdxList': []
+    };
   }
 
 }
