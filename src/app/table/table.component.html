@@ -3,9 +3,11 @@
         <td *ngFor="let col of data.columns" class="column">{{ col }}</td>
     </thead>
     <thead>
-        <td *ngFor="let col of data.columns"><input type="text" class="form-control input" /></td>
+        <td *ngFor="let col of data.columns; let idx=index;">
+            <input type="text" class="form-control input" (keyup)="applyFilter($event, idx)"  />
+        </td>
     </thead>
-    <tbody *ngFor="let rowGroup of data.data">
+    <tbody *ngFor="let rowGroup of data.filteredData">
             <tr>
                 <td *ngFor="let node1Data of rowGroup.node1Data; let idx=index;" 
                     class="column"

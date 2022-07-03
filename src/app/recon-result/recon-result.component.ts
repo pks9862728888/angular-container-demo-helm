@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { TableDataI } from '../table/table-data';
 import { ReconResultDataI } from './recon-result-data'
 
@@ -12,15 +13,21 @@ export class ReconResultComponent implements OnInit {
   responseData: ReconResultDataI;
   data: TableDataI;
   dataFilter: string = 'CO';
+  clearDataFilterSubject: Subject<void>;
 
   constructor() {
     this.responseData = this.getEmptyResponseData();
     this.data = this.getEmptyDataNode();
+    this.clearDataFilterSubject = new Subject<void>();
   }
 
   ngOnInit(): void {
     this.responseData = this.getData();
     this.filterData(this.dataFilter);
+  }
+
+  clearDataFilter() {
+    this.clearDataFilterSubject.next();
   }
 
   getData(): ReconResultDataI {
