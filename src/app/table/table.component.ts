@@ -16,16 +16,26 @@ export class TableComponent {
       columns: [],
       data: [],
       resultColIdx: 2,
-      testNameIdx: 1,
+      testNameColIdx: 1,
       errors: []
     }
   }
 
-  getColor(rowData: Array<String>) {
-    if (rowData.length > this.data.resultColIdx && this.data.resultColIdx > 0) {
-      const result = rowData[this.data.resultColIdx];
-      return ReconResultEnum[result as keyof typeof ReconResultEnum];
+  getBackgroundColorClass(rowData: Array<String>, idx: number, mismatchIdx: Array<Number>) {
+    if (idx == this.data.resultColIdx) {
+      if (rowData.length > this.data.resultColIdx && this.data.resultColIdx > 0) {
+        const result = rowData[this.data.resultColIdx];
+        return ReconResultEnum[result as keyof typeof ReconResultEnum];
+      }
+    } else {
+      if (mismatchIdx.includes(idx)) {
+        return ReconResultEnum.FAIL;
+      }
     }
     return '';
+  }
+
+  isEmpty(ticketUrl: string) {
+    return ticketUrl.length == 0;
   }
 }

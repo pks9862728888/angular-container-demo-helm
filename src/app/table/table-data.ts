@@ -1,7 +1,7 @@
 export interface TableDataI {
     columns: Array<String>,
     data: Array<DataNodeI>,
-    testNameIdx: number,
+    testNameColIdx: number,
     resultColIdx: number,
     errors: Array<String>
 }
