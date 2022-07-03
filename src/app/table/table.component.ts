@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ReconResultEnum } from './recon-result-enum';
-import { TableDataI } from './table-data';
+import { TableDataI, DataFilterI } from './table-data';
 
 @Component({
   selector: 'app-table',
@@ -13,6 +13,7 @@ export class TableComponent implements OnInit, OnDestroy {
   @Input() data: TableDataI;
   private clearDataFilterEventSubscription: Subscription;
   @Input() onClearDataFilterClick: Observable<void>;
+  appliedFilters: DataFilterI[] = [];
 
   constructor() {
     this.data = this.getEmptyDataObj();
@@ -47,15 +48,33 @@ export class TableComponent implements OnInit, OnDestroy {
     return '';
   }
 
-  applyFilter(query: any, idx: Number) {
-    let keyword: string = query.target.value;
-    this.data.filteredData = this.data.filteredData?.filter(d => 
-      d.node1Data[+idx].includes(keyword) || d.node2Data[+idx].includes(keyword)
-    );
+  applyFilter(query: any, idx: number) {
+    // Do case insensitive search
+    let keyword: string = query.target.value.toLocaleLowerCase();
+    this.appliedFilters[idx] = {key: keyword};
+
+    // Search in the actual list of input data
+    this.data.filteredData = this.data.data.filter(d => {
+      for (let i = 0; i < this.appliedFilters.length; i++) {
+        if (this.appliedFilters[i].key.length > 0) {
+          let res = d.node1Data[i].toLocaleLowerCase().includes(this.appliedFilters[i].key) || 
+                d.node2Data[i].toLocaleLowerCase().includes(this.appliedFilters[i].key);
+          if (res == false) {
+            return false;
+          }
+        }
+      }
+      return true;
+    });
   }
 
   clearFilter() {
     this.data.filteredData = this.data.data.filter(d => true);
+    let emptyFilters: DataFilterI[] = [];
+    for (let i = 0 ; i < this.data.columns.length; i++) {
+      emptyFilters.push({key: ''});
+    }
+    this.appliedFilters = emptyFilters;
   }
 
   isEmpty(ticketUrl: string) {

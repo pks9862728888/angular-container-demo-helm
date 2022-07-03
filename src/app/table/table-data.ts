@@ -14,3 +14,7 @@ export interface DataNodeI {
     mismatchIdxList: Array<Number>,
     ticketUrl: string
 }
+
+export interface DataFilterI {
+    key: string;
+}

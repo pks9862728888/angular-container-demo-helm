@@ -35,8 +35,8 @@ export class ReconResultComponent implements OnInit {
       'CO': {
         columns: ['Source', 'Test name', 'Result', 'Unique Identifier', 'Is Exit', 'Col 1', 'Col 2', 'Col 3'],
         data: [{
-          node1Data: ['INDIA', 'JURISDICTION_PRODUCT_IDENTIFIER_EVENT_TEST_2', 'PASS', 'ABXL0000000000033000000023456789', 'true', '1', '2', '3'],
-          node2Data: ['US', 'JURISDICTION_PRODUCT_IDENTIFIER_EVENT_TEST_1', 'PASS', 'ABXL0000000000033000000023456789', 'true', '1', '2', '3'],
+          node1Data: ['INDIA', 'JURISDICTION_PRODUCT_IDENTIFIER_EVENT_TEST_1', 'PASS', 'ABXL0000000000033000000023456789', 'true', '3', '2', '3'],
+          node2Data: ['US', 'JURISDICTION_PRODUCT_IDENTIFIER_EVENT_TEST_1', 'PASS', 'ABXL0000000000033000000023456789', 'true', '3', '2', '3'],
           mismatchIdxList: [],
           ticketUrl: 'https://www.google.com'
         }, {

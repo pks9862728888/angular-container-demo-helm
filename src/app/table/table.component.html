@@ -3,8 +3,8 @@
         <td *ngFor="let col of data.columns" class="column">{{ col }}</td>
     </thead>
     <thead>
-        <td *ngFor="let col of data.columns; let idx=index;">
-            <input type="text" class="form-control input" (keyup)="applyFilter($event, idx)"  />
+        <td *ngFor="let filter of appliedFilters; let idx=index;">
+            <input type="text" class="form-control input" [(ngModel)]="filter.key" (change)="applyFilter($event, idx)"  />
         </td>
     </thead>
     <tbody *ngFor="let rowGroup of data.filteredData">
