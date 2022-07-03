@@ -1,0 +1,5 @@
+.recon-result {
+    width: calc(100vw - 10rem);
+    height: calc(100vh - 10rem);
+    overflow: scroll;
+}
