@@ -6,3 +6,26 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
+/* Styling scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #63B175;
+    border-radius: 1rem;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #63B175;
+}
