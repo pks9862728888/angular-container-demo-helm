@@ -7,6 +7,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+    overflow: hidden;
+}
+
 h1,
 h2,
 h3,
@@ -25,14 +29,14 @@ p {
 }
 
 .menubar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 60px;
+    width: 100%;
     display: flex;
     align-items: center;
-    /* background-color: #1976d2; */
     background-color: #10ac63;
     color: white;
     font-weight: 600;
@@ -44,11 +48,6 @@ p {
     cursor: pointer;
     text-decoration: none;
     color: #fff;
-}
-
-.main-content {
-    background-color: #a7f0ce;
-    height: 100%;
 }
 
 .table {

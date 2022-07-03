@@ -1,9 +1,11 @@
-<div class="table-controls">
-    <div></div>
-    <div class="d-flex">
-        <button class="btn btn-outline-success" (click)="clearDataFilter()">Clear Filters</button>
+<div class="section">
+    <div class="table-controls">
+        <div></div>
+        <div class="d-flex">
+            <button class="btn btn-outline-success" (click)="clearDataFilter()">Clear Filters</button>
+        </div>
     </div>
-</div>
-<div class="recon-result">
-    <app-table [data]="data" [onClearDataFilterClick]="clearDataFilterSubject.asObservable()"></app-table>
+    <div class="recon-result">
+        <app-table [data]="data" [onClearDataFilterClick]="clearDataFilterSubject.asObservable()"></app-table>
+    </div>
 </div>

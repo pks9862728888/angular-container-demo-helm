@@ -1,3 +1,7 @@
+.section {
+    overflow: hidden;
+}
+
 .table-controls {
     display: flex;
     flex-wrap: inherit;
