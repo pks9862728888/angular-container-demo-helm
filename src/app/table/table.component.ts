@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ReconResultEnum } from './recon-result-enum';
 import { TableDataI } from './table-data';
 
 @Component({
@@ -18,5 +19,13 @@ export class TableComponent {
       testNameIdx: 1,
       errors: []
     }
+  }
+
+  getColor(rowData: Array<String>) {
+    if (rowData.length > this.data.resultColIdx && this.data.resultColIdx > 0) {
+      const result = rowData[this.data.resultColIdx];
+      return ReconResultEnum[result as keyof typeof ReconResultEnum];
+    }
+    return '';
   }
 }
