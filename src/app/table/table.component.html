@@ -4,7 +4,7 @@
     </thead>
     <thead>
         <td *ngFor="let filter of appliedFilters; let idx=index;">
-            <input type="text" class="form-control input" [(ngModel)]="filter.key" (change)="applyFilter($event, idx)"  />
+            <input type="text" class="form-control input" [ngClass]="idx == 0 ? 'input-disabled' : ''" [(ngModel)]="filter.key" (change)="applyFilter($event, idx)" [disabled]="idx == 0"  />
         </td>
     </thead>
     <tbody *ngFor="let rowGroup of data.filteredData">

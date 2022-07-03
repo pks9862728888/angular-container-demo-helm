@@ -6,3 +6,7 @@
 .input {
     background-color: rgb(230, 251, 255);
 }
+
+.input-disabled {
+    background-color: rgba(230, 251, 255, 0.3);
+}
