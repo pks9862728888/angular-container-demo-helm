@@ -12,10 +12,13 @@ export class ReconResultComponent implements OnInit {
 
   responseData: ReconResultDataI;
   data: TableDataI;
-  dataFilter: string = 'CO';
+  appliedProductTypeFilter: string = 'CO';
+  productTypes: string[];
   clearDataFilterSubject: Subject<void>;
+  
 
   constructor() {
+    this.productTypes = ['CO' , 'CR', 'EQ', 'FX', 'IR'];
     this.responseData = this.getEmptyResponseData();
     this.data = this.getEmptyDataNode();
     this.clearDataFilterSubject = new Subject<void>();
@@ -23,7 +26,7 @@ export class ReconResultComponent implements OnInit {
 
   ngOnInit(): void {
     this.responseData = this.getData();
-    this.filterData(this.dataFilter);
+    this.filterProductData(this.appliedProductTypeFilter);
   }
 
   clearDataFilter() {
@@ -90,7 +93,7 @@ export class ReconResultComponent implements OnInit {
     };
   }
 
-  filterData(dataFilter: string) {
+  filterProductData(dataFilter: string) {
     switch (dataFilter) {
       case 'CO':
         this.data = this.responseData.CO;

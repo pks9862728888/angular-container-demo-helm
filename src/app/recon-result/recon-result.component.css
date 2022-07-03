@@ -9,6 +9,10 @@
     justify-content: space-between;
 }
 
+.form-check {
+    padding-right: 1rem;
+}
+
 .recon-result {
     width: calc(100vw - 10rem);
     height: calc(100vh - 10rem);
