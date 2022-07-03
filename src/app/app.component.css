@@ -37,11 +37,12 @@ p {
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: #10ac63;
+    background-color: #63B175;
     color: white;
     font-weight: 600;
     padding-left: 1rem;
     padding-right: 1rem;
+    box-shadow: 0px 2px 2px #024e0c;
 }
 
 .title {

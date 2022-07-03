@@ -1,6 +1,6 @@
 <div class="section">
     <div class="table-controls">
-        <div class="d-flex">
+        <div class="d-flex m-l-1rem">
             <div class="form-check" *ngFor="let product of productTypes; let idx=index;">
                 <input class="form-check-input" type="radio" 
                       (click)="filterProductData(product)"
@@ -12,9 +12,9 @@
                 </label>
             </div>
         </div>
-        <div class="d-flex">
-            <button class="btn btn-outline-success" (click)="clearDataFilter()">Clear Filters</button>
-        </div>
+        <button class="btn btn-success m-r-1rem" (click)="clearDataFilter()">
+            Clear Filters
+        </button>
     </div>
     <div class="recon-result">
         <app-table [data]="data" [onClearDataFilterClick]="clearDataFilterSubject.asObservable()"></app-table>

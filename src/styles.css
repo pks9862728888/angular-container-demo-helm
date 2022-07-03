@@ -1,7 +1,8 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 body {
-    background-color: #a7f0ce;
+    /* background-color: #a7f0ce; */
+    background-color: #d5fce9;
     overflow-y: scroll;
     overflow-x: hidden;
 }
